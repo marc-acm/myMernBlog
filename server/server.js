@@ -36,6 +36,15 @@ import posts from './routes/post.routes';
 import dummyData from './dummyData';
 import serverConfig from './config';
 
+const db = mongoose.connection;
+
+ db.on('error', console.error);
+ db.once('open', function (res) {
+     dummyData();  //put this here instead of inside mongoose.connect
+ });
+
+
+
 // Set native promises as mongoose promise
 mongoose.Promise = global.Promise;
 
