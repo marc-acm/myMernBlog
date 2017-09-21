@@ -1993,13 +1993,6 @@
 	// Import required modules
 	
 	
-	var db = _mongoose2.default.connection;
-	
-	db.on('error', console.error);
-	db.once('open', function (res) {
-	  (0, _dummyData2.default)(); //put this here instead of inside mongoose.connect
-	});
-	
 	// Set native promises as mongoose promise
 	_mongoose2.default.Promise = global.Promise;
 	
